@@ -47,7 +47,18 @@ body {
     width: 60px;
     margin-bottom: 20px;
     margin-left: 20px;
+    cursor: pointer;
+    border: none;
 }
+
+.añadir-nota:hover {
+    opacity: 60%;
+}
+
+.añadir-nota:active {
+    opacity: 100%;
+}
+
 
 .nota-nueva {
     background: #ccc7cc5b;
@@ -65,7 +76,20 @@ body {
     text-transform: uppercase;
 }
 
-.nota {
+.vacio {
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.notas-vacio {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background: #ccc7cc5b;
+    border-radius: 20px;
+}
+
+.nota, .vacio {
     padding: 15px;
 }
 
