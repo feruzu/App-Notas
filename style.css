@@ -1,0 +1,71 @@
+:root {
+    --fondo: #f1f1f1;
+}
+
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    line-height: 1.5;
+    background-color: var(--fondo);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+    margin: 50px;
+}
+
+.container h1 {
+    font-size: 40px;
+    margin-bottom: 0;
+}
+
+.note {
+    display: grid;
+    gap: 25px;
+    grid-template-columns: repeat(auto-fill, 265px);
+    justify-content: center;
+}
+
+.añadir-nota img {
+    width: 40px;
+}
+
+.añadir-nota {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ebaef3;
+    border-radius: 50px;
+    height: 60px;
+    width: 60px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.nota-nueva {
+    background: #ccc7cc5b;
+    border-radius: 20px;
+    height: 265px;
+}
+
+.nota-nueva h2, 
+.nota-nueva p {
+    margin: 0;
+}
+
+.nota-nueva h2 {
+    margin: 10px 0;
+    text-transform: uppercase;
+}
+
+.nota {
+    padding: 15px;
+}
+
