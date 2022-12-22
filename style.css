@@ -111,3 +111,7 @@ body {
 .modal-header{
     border-bottom: none!important;
 }
+
+div {
+    word-wrap: break-word;
+}
