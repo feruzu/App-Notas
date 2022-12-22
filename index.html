@@ -8,14 +8,46 @@
     <title>Notas</title>
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 
 <body>
     <div class="container">
         <h1>Notas</h1>
-        <button class="añadir-nota">
+        <button class="añadir-nota" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" >
             <img src="/img/mas.svg">
         </button>
+
+
+        <!--Modal-->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5">Nota</h1>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="mb-3">
+                      <label>Asunto</label>
+                      <input id="asunto-nota" type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                      <label>Nota</label>
+                      <textarea id="texto-nota" class="form-control"></textarea>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                  <button id="aceptar" type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+
         <div class="note">
 
             <div class="notas-vacio">
@@ -35,11 +67,13 @@
                     <p class="texto">Nam facilisis interdum pulvinar. Fusce risus turpis, malesuada sed ligula at, elementum commodo enim. Nam nec nunc nec tellus lobortis euismod.</p>
                 </div>
             </div>
+          
         </div>
-
     </div>
 
     <script src="app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
 </body>
 
 </html>

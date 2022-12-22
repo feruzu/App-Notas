@@ -87,9 +87,27 @@ body {
     align-items: center;
     background: #ccc7cc5b;
     border-radius: 20px;
+    height: 265px;
 }
 
 .nota, .vacio {
     padding: 15px;
 }
 
+#aceptar {
+    background-color: #ebaef3;
+    border: none;
+}
+
+.btn.btn-secondary {
+    background-color: #212529de;
+    border: none;
+}
+
+.modal-footer {
+    border-top: none!important;
+}
+
+.modal-header{
+    border-bottom: none!important;
+}
