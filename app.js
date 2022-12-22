@@ -4,6 +4,7 @@ let asunto = document.querySelector('#asunto-nota');
 let nota = document.querySelector('#texto-nota');
 let modal = document.querySelector('.modal');
 let texto = document.querySelector('#texto-nota');
+let textoNota = document.querySelector('texto');
 
 aceptar.addEventListener('click', añadirNota);
 
@@ -15,9 +16,9 @@ function añadirNota() {
 
     newElement.innerHTML = `<div class="nota">
     <h2>${asunto.value}</h2>
-    <p>${texto.value}</p>
+    <p class="texto">${texto.value}</p>
     </div>`;
     document.querySelector('.note').appendChild(newElement);
-
+    
 }
 
