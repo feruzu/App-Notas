@@ -41,7 +41,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #ebaef3;
+    background: #ff555d;
     border-radius: 50px;
     height: 60px;
     width: 60px;
@@ -74,6 +74,7 @@ body {
 .nota-nueva h2 {
     margin: 10px 0;
     text-transform: uppercase;
+    font-size: 20px;
 }
 
 .vacio {
@@ -95,7 +96,7 @@ body {
 }
 
 #aceptar {
-    background-color: #ebaef3;
+    background-color: #ff555d;
     border: none;
 }
 
@@ -115,3 +116,21 @@ body {
 div {
     word-wrap: break-word;
 }
+
+#borrar {
+    width: 25px;
+    cursor: pointer;
+    position: absolute;
+    margin: 0 auto;
+    margin-left: 215px;
+    margin-top: 215px;
+}
+
+#borrar:hover {
+    filter: invert(53%) sepia(23%) saturate(5230%) hue-rotate(320deg) brightness(92%) contrast(118%);
+}
+
+#borrar:active {
+    opacity: 60%;
+}
+
