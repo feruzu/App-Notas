@@ -1,5 +1,3 @@
-
-
 let añadir = document.querySelector('.añadir-nota');
 let aceptar = document.querySelector('#aceptar');
 let asunto = document.querySelector('#asunto-nota');
@@ -14,7 +12,6 @@ aceptar.addEventListener('click', añadirNota);
 let notas = [];
 
 function añadirNota() {
-  
   // Añade nota
   if (asunto.value.length > 0 && texto.value.length > 0) {
     const newElement = document.createElement("div");
@@ -32,7 +29,6 @@ function añadirNota() {
   }
 
 
-
 // Guardar en el LocalStorage
 guardarLocalStorage()
 function guardarLocalStorage(){
@@ -40,7 +36,7 @@ function guardarLocalStorage(){
     asunto: asunto.value,
     texto: texto.value
   };
-  
+
   if(localStorage.getItem('notas') === null){
     notas.push(nota);
     localStorage.setItem("notas", JSON.stringify(notas));
@@ -60,25 +56,12 @@ function guardarLocalStorage(){
 borrarNotas()
 function borrarNotas(asunto) {
   if(asunto != null ){
-
     notas = notas.filter(nota => nota.asunto != asunto);
-  
     localStorage.setItem("notas", JSON.stringify(notas));
-  
-    recuperar();
   }
+  recuperar();
 
 }
-
-
-// Limpiar recuperar
-function reset(){
-  const elements = document.getElementsByClassName("nota-nueva");
-  while(elements.length > 0){
-      elements[0].parentNode.removeChild(elements[0]);
-  }
-}
-
 
 
 // Recuperar localStorage Notas
@@ -86,7 +69,8 @@ recuperar()
 function recuperar(){
   if(localStorage.getItem('notas') !== null){
     vacio.style.display = "none";
-  } 
+  }
+  
 
   let array = [];
   array = (JSON.parse(localStorage.getItem('notas')))
@@ -106,6 +90,18 @@ function recuperar(){
        
    })
 }
+
+
+
+
+// Limpiar recuperar
+function reset(){
+  const elements = document.getElementsByClassName("nota-nueva");
+  while(elements.length > 0){
+      elements[0].parentNode.removeChild(elements[0]);
+  }
+}
+
 
 
 
