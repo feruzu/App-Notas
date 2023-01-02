@@ -47,6 +47,14 @@ function añadirNota() {
   }
 }
 
+// Vaciar input y textarea de modal
+aceptar.addEventListener("click", vaciarCampos);
+vaciarCampos();
+function vaciarCampos() {
+  asunto.value = "";
+  texto.value = "";
+}
+
 // Borrar notas
 borrarNotas();
 function borrarNotas(asunto) {
