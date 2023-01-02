@@ -54,6 +54,7 @@ function borrarNotas(asunto) {
     notas = notas.filter((nota) => nota.asunto !== asunto);
     localStorage.setItem("notas", JSON.stringify(notas));
   }
+
   recuperar();
 }
 
@@ -61,6 +62,10 @@ function borrarNotas(asunto) {
 function recuperar() {
   if (localStorage.getItem("notas") !== null) {
     vacio.style.display = "none";
+  }
+  if (localStorage.getItem("notas") === "[]") {
+    localStorage.clear();
+    vacio.style.display = "flex";
   }
 
   let array = [];
