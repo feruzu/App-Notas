@@ -9,6 +9,10 @@ let vacio = document.querySelector(".notas-vacio");
 let notaNueva = document.querySelector(".nota-nueva");
 let notas = [];
 
+
+const fecha = new Date().toLocaleDateString();
+
+
 aceptar.addEventListener("click", añadirNota);
 
 function añadirNota() {
@@ -20,6 +24,7 @@ function añadirNota() {
 
     (newElement.innerHTML = `<div class="nota">
     <img id="borrar" src="img/borrar.svg" onclick="borrarNotas('${asunto.value}')">
+       <p class="fecha">${fecha}</p>
         <h2 id="asunto">${asunto.value}</h2>
         <p class="texto">${texto.value}</p>
         </div>`),
@@ -34,6 +39,7 @@ function añadirNota() {
     const nota = {
       asunto: asunto.value,
       texto: texto.value,
+      fecha: fecha
     };
 
     if (localStorage.getItem("notas") === null) {
@@ -89,6 +95,7 @@ function recuperar() {
 
       (newElement.innerHTML = `<div class="nota">
         <img id="borrar" src="img/borrar.svg" onclick="borrarNotas('${element.asunto}')">
+        <p class="fecha">${element.fecha}</p>
          <h2 id="asunto">${element.asunto}</h2>
          <p class="texto">${element.texto}</p>
          </div>`),

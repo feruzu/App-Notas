@@ -138,3 +138,15 @@ div {
     opacity: 60%;
 }
 
+
+p.fecha {
+    margin: 0 auto;
+    position: absolute;
+    margin-top: 220px;
+    font-size: 12px;
+    background-color: #ff555d;
+    padding: 1px 5px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+}
