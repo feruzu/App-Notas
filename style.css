@@ -7,7 +7,9 @@ html {
     scroll-behavior: smooth;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
     box-sizing: inherit;
 }
 
@@ -29,15 +31,15 @@ body {
 .note {
     display: grid;
     gap: 25px;
-    grid-template-columns: repeat(auto-fill, 265px);
+    grid-template-columns: repeat(auto-fill, 300px);
     justify-content: center;
 }
 
-.añadir-nota img {
+#añadir-nota img {
     width: 40px;
 }
 
-.añadir-nota {
+#añadir-nota {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,24 +53,24 @@ body {
     border: none;
 }
 
-.añadir-nota:hover {
+#añadir-nota:hover {
     opacity: 60%;
 }
 
-.añadir-nota:active {
+#añadir-nota:active {
     opacity: 100%;
 }
 
 
 .nota-nueva {
     background: #ffffff;
-box-shadow:  20px 20px 60px #d9d9d9,
-             -20px -20px 60px #ffffff;
+    box-shadow: 20px 20px 60px #d9d9d9,
+        -20px -20px 60px #ffffff;
     border-radius: 20px;
-    height: 265px;
+    height: 300px;
 }
 
-.nota-nueva h2, 
+.nota-nueva h2,
 .nota-nueva p {
     margin: 0;
 }
@@ -85,17 +87,18 @@ box-shadow:  20px 20px 60px #d9d9d9,
 }
 
 .notas-vacio {
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     background: #ffffff;
-box-shadow:  20px 20px 60px #d9d9d9,
-             -20px -20px 60px #ffffff;
+    box-shadow: 20px 20px 60px #d9d9d9,
+        -20px -20px 60px #ffffff;
     border-radius: 20px;
-    height: 265px;
+    height: 300px;
 }
 
-.nota, .vacio {
+.nota,
+.vacio {
     padding: 15px;
 }
 
@@ -110,11 +113,11 @@ box-shadow:  20px 20px 60px #d9d9d9,
 }
 
 .modal-footer {
-    border-top: none!important;
+    border-top: none !important;
 }
 
-.modal-header{
-    border-bottom: none!important;
+.modal-header {
+    border-bottom: none !important;
 }
 
 div {
@@ -126,8 +129,24 @@ div {
     cursor: pointer;
     position: absolute;
     margin: 0 auto;
-    margin-left: 215px;
-    margin-top: 215px;
+    margin-left: 250px;
+    margin-top: 250px;
+}
+
+#editar {
+    width: 25px;
+    cursor: pointer;
+    position: absolute;
+    margin: 0 auto;
+}
+
+
+#editar:hover {
+    filter: invert(53%) sepia(23%) saturate(5230%) hue-rotate(320deg) brightness(92%) contrast(118%);
+}
+
+#editar:active {
+    opacity: 60%;
 }
 
 #borrar:hover {
@@ -142,11 +161,30 @@ div {
 p.fecha {
     margin: 0 auto;
     position: absolute;
-    margin-top: 220px;
+    margin-top: 233px;
     font-size: 12px;
     background-color: #ff555d;
     padding: 1px 5px;
     border-radius: 10px;
     color: white;
     font-weight: bold;
+}
+
+p.texto {
+    padding: 10px;
+}
+
+h2#asunto {
+    margin: 25px 10px 10px 10px;
+}
+
+#editar-nota {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+    cursor: pointer;
+    border: none;
+    padding-left: 263px;
+    margin-top: 10px;
 }
