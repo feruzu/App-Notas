@@ -138,6 +138,7 @@ div {
     cursor: pointer;
     position: absolute;
     margin: 0 auto;
+    margin-left: 245px;
 }
 
 
@@ -157,11 +158,10 @@ div {
     opacity: 60%;
 }
 
-
 p.fecha {
     margin: 0 auto;
     position: absolute;
-    margin-top: 233px;
+    margin-top: 255px;
     font-size: 12px;
     background-color: #ff555d;
     padding: 1px 5px;
