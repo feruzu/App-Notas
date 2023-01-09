@@ -7,11 +7,13 @@ let texto = document.querySelector("#texto-nota");
 let textoNota = document.querySelector("texto");
 let vacio = document.querySelector(".notas-vacio");
 let notaNueva = document.querySelector(".nota-nueva");
+let editar = document.querySelector("#editar");
+let titutloEditar = document.querySelector(".modal-title");
 let notas = [];
 
 
-const fecha = new Date().toLocaleDateString();
-
+// Fecha
+let fecha = new Date().toLocaleDateString();
 
 aceptar.addEventListener("click", añadirNota);
 
@@ -23,23 +25,32 @@ function añadirNota() {
     document.querySelector(".note").appendChild(newElement);
 
     (newElement.innerHTML = `<div class="nota">
+    
+
+    <div class="form-check">
+   <input class="form-check-input" type="checkbox"  value="" id="flexCheckDefault">
+    </div>
+
     <img id="borrar" src="img/borrar.svg" onclick="borrarNotas('${asunto.value}')">
-       <p class="fecha">${fecha}</p>
+
+    
+        <p class="fecha">${fecha}</p>
         <h2 id="asunto">${asunto.value}</h2>
         <p class="texto">${texto.value}</p>
         </div>`),
       document.querySelector(".note").appendChild(newElement);
 
     vacio.style.display = "none";
-  }
 
+  }
+  
   // Guardar en el LocalStorage
   guardarLocalStorage();
   function guardarLocalStorage() {
     const nota = {
       asunto: asunto.value,
       texto: texto.value,
-      fecha: fecha
+      fecha: fecha,
     };
 
     if (localStorage.getItem("notas") === null) {
@@ -77,6 +88,7 @@ function recuperar() {
   if (localStorage.getItem("notas") !== null) {
     vacio.style.display = "none";
   }
+  
   if (localStorage.getItem("notas") === "[]") {
     localStorage.clear();
     vacio.style.display = "flex";
@@ -94,7 +106,17 @@ function recuperar() {
       document.querySelector(".note").appendChild(newElement);
 
       (newElement.innerHTML = `<div class="nota">
+
+      <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+      </div>
+
+
         <img id="borrar" src="img/borrar.svg" onclick="borrarNotas('${element.asunto}')">
+
+        
+      
+
         <p class="fecha">${element.fecha}</p>
          <h2 id="asunto">${element.asunto}</h2>
          <p class="texto">${element.texto}</p>
@@ -112,3 +134,6 @@ function reset() {
     elements[0].parentNode.removeChild(elements[0]);
   }
 }
+
+
+
