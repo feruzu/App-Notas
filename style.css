@@ -133,22 +133,6 @@ div {
     margin-top: 250px;
 }
 
-#editar {
-    width: 25px;
-    cursor: pointer;
-    position: absolute;
-    margin: 0 auto;
-    margin-left: 245px;
-}
-
-
-#editar:hover {
-    filter: invert(53%) sepia(23%) saturate(5230%) hue-rotate(320deg) brightness(92%) contrast(118%);
-}
-
-#editar:active {
-    opacity: 60%;
-}
 
 #borrar:hover {
     filter: invert(53%) sepia(23%) saturate(5230%) hue-rotate(320deg) brightness(92%) contrast(118%);
@@ -158,10 +142,11 @@ div {
     opacity: 60%;
 }
 
+
 p.fecha {
     margin: 0 auto;
     position: absolute;
-    margin-top: 255px;
+    margin-top: 253px;
     font-size: 12px;
     background-color: #ff555d;
     padding: 1px 5px;
@@ -178,13 +163,15 @@ h2#asunto {
     margin: 25px 10px 10px 10px;
 }
 
-#editar-nota {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #ffffff;
-    cursor: pointer;
-    border: none;
-    padding-left: 263px;
-    margin-top: 10px;
+.form-check {
+    position: absolute;
+    margin: 0 auto;
+    margin-left: 250px;
+   
 }
+
+.form-check input {
+    width: 20px;
+    height: 20px;
+}
+
