@@ -1,7 +1,6 @@
 let añadir = document.querySelector(".añadir-nota");
 let aceptar = document.querySelector("#aceptar");
 let asunto = document.querySelector("#asunto-nota");
-let nota = document.querySelector("#texto-nota");
 let modal = document.querySelector(".modal");
 let texto = document.querySelector("#texto-nota");
 let textoNota = document.querySelector("texto");
@@ -15,9 +14,10 @@ let notas = [];
 // Fecha
 let fecha = new Date().toLocaleDateString();
 
-aceptar.addEventListener("click", añadirNota);
+aceptar.addEventListener("click", validarCampos);
 
 function añadirNota() {
+
   // Añade nota
   if (asunto.value.length > 0 && texto.value.length > 0) {
     const newElement = document.createElement("div");
@@ -28,7 +28,7 @@ function añadirNota() {
     
 
     <div class="form-check">
-   <input class="form-check-input" type="checkbox"  value="" id="flexCheckDefault">
+    <input class="form-check-input" type="checkbox"  value="" id="flexCheckDefault">
     </div>
 
     <img id="borrar" src="img/borrar.svg" onclick="borrarNotas('${asunto.value}')">
@@ -61,6 +61,7 @@ function añadirNota() {
       notas.push(nota);
       localStorage.setItem("notas", JSON.stringify(notas));
     }
+    
   }
 }
 
@@ -89,10 +90,11 @@ function recuperar() {
     vacio.style.display = "none";
   }
   
-  if (localStorage.getItem("notas") === "[]") {
+ if (localStorage.getItem("notas") === "[]") {
     localStorage.clear();
     vacio.style.display = "flex";
   }
+
 
   let array = [];
   array = JSON.parse(localStorage.getItem("notas"));
@@ -117,7 +119,7 @@ function recuperar() {
         
       
 
-        <p class="fecha">${element.fecha}</p>
+         <p class="fecha">${element.fecha}</p>
          <h2 id="asunto">${element.asunto}</h2>
          <p class="texto">${element.texto}</p>
          </div>`),
@@ -136,4 +138,13 @@ function reset() {
 }
 
 
+
+function validarCampos(){
+  if (asunto.value.length === 0 || texto.value.length === 0){
+    aceptar.style.display = "pointer-events = none"
+  }else{
+    añadirNota()
+  }
+
+}
 
