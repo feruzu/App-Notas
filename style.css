@@ -63,9 +63,8 @@ body {
 
 
 .nota-nueva {
-    background: #ffffff;
     box-shadow: 20px 20px 60px #d9d9d9,
-        -20px -20px 60px #ffffff;
+        2px 2px 60px #ffffff;
     border-radius: 20px;
     height: 300px;
 }
@@ -92,7 +91,7 @@ body {
     align-items: center;
     background: #ffffff;
     box-shadow: 20px 20px 60px #d9d9d9,
-        -5px -5px 60px #ffffff;
+        2px 2px 60px #ffffff;
     border-radius: 20px;
     height: 300px;
 }
