@@ -6,8 +6,8 @@ let texto = document.querySelector("#texto-nota");
 let textoNota = document.querySelector("texto");
 let vacio = document.querySelector(".notas-vacio");
 let notaNueva = document.querySelector(".nota-nueva");
-let editar = document.querySelector("#editar");
 let titutloEditar = document.querySelector(".modal-title");
+
 let notas = [];
 
 
@@ -28,7 +28,7 @@ function añadirNota() {
     
 
     <div class="form-check">
-    <input class="form-check-input" type="checkbox"  value="" id="flexCheckDefault">
+    <input class="form-check-input" type="checkbox"  value="" id="flexCheck">
     </div>
 
     <img id="borrar" src="img/borrar.svg" onclick="borrarNotas('${asunto.value}')">
@@ -64,6 +64,7 @@ function añadirNota() {
     
   }
 }
+
 
 // Vaciar input y textarea de modal
 aceptar.addEventListener("click", vaciarCampos);
@@ -110,15 +111,13 @@ function recuperar() {
       (newElement.innerHTML = `<div class="nota">
 
       <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+      <input class="form-check-input" type="checkbox" value="" id="flexCheck">
       </div>
 
 
         <img id="borrar" src="img/borrar.svg" onclick="borrarNotas('${element.asunto}')">
 
-        
       
-
          <p class="fecha">${element.fecha}</p>
          <h2 id="asunto">${element.asunto}</h2>
          <p class="texto">${element.texto}</p>
@@ -128,6 +127,8 @@ function recuperar() {
       notas = JSON.parse(localStorage.getItem("notas"));
     });
 }
+
+
 
 // Limpiar recuperar
 function reset() {
@@ -147,4 +148,5 @@ function validarCampos(){
   }
 
 }
+
 
