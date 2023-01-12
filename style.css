@@ -167,7 +167,19 @@ h2#asunto {
 }
 
 .form-check input {
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
 }
 
+.form-check input:focus {
+    box-shadow: none;
+}
+
+.form-check-input:checked {
+    background-color: #7cda9b!important;
+    border-color: #7cda9b!important;
+}
+
+.form-check-input[type=checkbox] {
+    border-radius: 50%!important;
+}
