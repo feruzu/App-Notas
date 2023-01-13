@@ -169,6 +169,7 @@ h2#asunto {
 .form-check input {
     width: 25px;
     height: 25px;
+    cursor: pointer;
 }
 
 .form-check input:focus {
