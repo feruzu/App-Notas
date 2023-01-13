@@ -47,10 +47,11 @@ body {
     border-radius: 50px;
     height: 60px;
     width: 60px;
-    margin-bottom: 20px;
+    margin-bottom: 35px;
     margin-left: 20px;
     cursor: pointer;
     border: none;
+    margin-top: 25px;
 }
 
 #añadir-nota:hover {
@@ -162,8 +163,7 @@ h2#asunto {
 .form-check {
     position: absolute;
     margin: 0 auto;
-    margin-left: 250px;
-   
+    margin-left: 250px; 
 }
 
 .form-check input {
@@ -183,3 +183,4 @@ h2#asunto {
 .form-check-input[type=checkbox] {
     border-radius: 50%!important;
 }
+
