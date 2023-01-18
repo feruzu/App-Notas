@@ -7,9 +7,9 @@ let textoNota = document.querySelector("texto");
 let vacio = document.querySelector(".notas-vacio");
 let notaNueva = document.querySelector(".nota-nueva");
 let titutloEditar = document.querySelector(".modal-title");
+let input = document.querySelector("#flexCheck");
 
 let notas = [];
-
 
 // Fecha
 let fecha = new Date().toLocaleDateString();
@@ -17,7 +17,6 @@ let fecha = new Date().toLocaleDateString();
 aceptar.addEventListener("click", validarCampos);
 
 function añadirNota() {
-
   // Añade nota
   if (asunto.value.length > 0 && texto.value.length > 0) {
     const newElement = document.createElement("div");
@@ -28,7 +27,7 @@ function añadirNota() {
     
 
     <div class="form-check">
-    <input class="form-check-input" type="checkbox"  value="" id="flexCheck">
+    <input class="form-check-input" type="checkbox" onChange="cambiaEstado(${asunto})" id="${asunto.value}">
     </div>
 
     <img id="borrar" src="img/borrar.svg" onclick="borrarNotas('${asunto.value}')">
@@ -41,9 +40,8 @@ function añadirNota() {
       document.querySelector(".note").appendChild(newElement);
 
     vacio.style.display = "none";
-
   }
-  
+
   // Guardar en el LocalStorage
   guardarLocalStorage();
   function guardarLocalStorage() {
@@ -51,6 +49,7 @@ function añadirNota() {
       asunto: asunto.value,
       texto: texto.value,
       fecha: fecha,
+      completado: false,
     };
 
     if (localStorage.getItem("notas") === null) {
@@ -61,10 +60,25 @@ function añadirNota() {
       notas.push(nota);
       localStorage.setItem("notas", JSON.stringify(notas));
     }
-    
+
+    input();
+    function input() {
+      // Checkbox
+      let checkbox = document.getElementById(element.asunto);
+
+      checkbox.addEventListener("change", (pendiente) => {
+        nota.completado = pendiente.target.checked;
+        localStorage.setItem("notas", JSON.stringify(notas));
+
+        if (nota.completado) {
+          checkbox.classList.add("completado");
+        } else {
+          checkbox.classList.remove("completado");
+        }
+      });
+    }
   }
 }
-
 
 // Vaciar input y textarea de modal
 aceptar.addEventListener("click", vaciarCampos);
@@ -90,12 +104,11 @@ function recuperar() {
   if (localStorage.getItem("notas") !== null) {
     vacio.style.display = "none";
   }
-  
- if (localStorage.getItem("notas") === "[]") {
+
+  if (localStorage.getItem("notas") === "[]") {
     localStorage.clear();
     vacio.style.display = "flex";
   }
-
 
   let array = [];
   array = JSON.parse(localStorage.getItem("notas"));
@@ -111,7 +124,7 @@ function recuperar() {
       (newElement.innerHTML = `<div class="nota">
 
       <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="flexCheck">
+      <input class="form-check-input" type="checkbox" id="${element.asunto}">
       </div>
 
 
@@ -125,10 +138,13 @@ function recuperar() {
         document.querySelector(".note").appendChild(newElement);
 
       notas = JSON.parse(localStorage.getItem("notas"));
+
+      let checkbox = document.getElementById(element.asunto);
+
+      checkbox.type = "checkbox";
+      checkbox.checked = element.completado;
     });
 }
-
-
 
 // Limpiar recuperar
 function reset() {
@@ -138,15 +154,34 @@ function reset() {
   }
 }
 
-
-
-function validarCampos(){
-  if (asunto.value.length === 0 || texto.value.length === 0){
-    aceptar.style.display = "pointer-events = none"
-  }else{
-    añadirNota()
+// Validar campos
+function validarCampos() {
+  if (asunto.value.length === 0 || texto.value.length === 0) {
+    aceptar.style.display = "pointer-events = none";
+  } else {
+    añadirNota();
   }
-
 }
 
+// function cambiaEstado(asunto){
+//   notas.forEach(element, index => {
+//     if (element.asunto === asunto) {
+//       nota = notas.findIndex(index)
+//     } else {
 
+//     }
+//   });
+// }
+
+// // // Checkbox
+//  let checkbox = document.querySelectorAll("#flexCheck");
+
+// // // checkbox.addEventListener('change', pendiente);
+
+//  Array.prototype.forEach.call(checkbox, function(item) {
+//    item.addEventListener("change", pendiente);
+//  });
+
+//   function pendiente(){
+//     console.log('hola')
+//  }
