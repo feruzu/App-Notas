@@ -27,12 +27,9 @@ function añadirNota() {
     
 
     <div class="form-check">
-    <input class="form-check-input" type="checkbox" onChange="cambiaEstado(${asunto})" id="${asunto.value}">
+    <input class="form-check-input" type="checkbox" onChange="cambiaEstado('${asunto.value}')" id="${asunto.value}">
     </div>
-
     <img id="borrar" src="img/borrar.svg" onclick="borrarNotas('${asunto.value}')">
-
-    
         <p class="fecha">${fecha}</p>
         <h2 id="asunto">${asunto.value}</h2>
         <p class="texto">${texto.value}</p>
@@ -59,23 +56,6 @@ function añadirNota() {
       notas = JSON.parse(localStorage.getItem("notas"));
       notas.push(nota);
       localStorage.setItem("notas", JSON.stringify(notas));
-    }
-
-    input();
-    function input() {
-      // Checkbox
-      let checkbox = document.getElementById(element.asunto);
-
-      checkbox.addEventListener("change", (pendiente) => {
-        nota.completado = pendiente.target.checked;
-        localStorage.setItem("notas", JSON.stringify(notas));
-
-        if (nota.completado) {
-          checkbox.classList.add("completado");
-        } else {
-          checkbox.classList.remove("completado");
-        }
-      });
     }
   }
 }
@@ -122,25 +102,17 @@ function recuperar() {
       document.querySelector(".note").appendChild(newElement);
 
       (newElement.innerHTML = `<div class="nota">
-
-      <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="${element.asunto}">
-      </div>
-
-
+        <div class="form-check">
+        <input class="form-check-input" type="checkbox" onChange="cambiaEstado('${element.asunto}')" id="${element.asunto}">
+        </div>
         <img id="borrar" src="img/borrar.svg" onclick="borrarNotas('${element.asunto}')">
-
-      
          <p class="fecha">${element.fecha}</p>
          <h2 id="asunto">${element.asunto}</h2>
          <p class="texto">${element.texto}</p>
          </div>`),
         document.querySelector(".note").appendChild(newElement);
-
       notas = JSON.parse(localStorage.getItem("notas"));
-
       let checkbox = document.getElementById(element.asunto);
-
       checkbox.type = "checkbox";
       checkbox.checked = element.completado;
     });
@@ -163,25 +135,41 @@ function validarCampos() {
   }
 }
 
-// function cambiaEstado(asunto){
-//   notas.forEach(element, index => {
-//     if (element.asunto === asunto) {
-//       nota = notas.findIndex(index)
-//     } else {
 
-//     }
-//   });
-// }
+// Cambio de estado de completado
+function cambiaEstado(asunto) {
+  localStorage.clear();
+  let notasAux = [];
+  notas.forEach((element) => {
+    let checkbox = document.getElementById(element.asunto);
+    if (element.completado) {
+      checkbox.classList.add("completado");
+    } else {
+      checkbox.classList.remove("completado");
+    }
 
-// // // Checkbox
-//  let checkbox = document.querySelectorAll("#flexCheck");
-
-// // // checkbox.addEventListener('change', pendiente);
-
-//  Array.prototype.forEach.call(checkbox, function(item) {
-//    item.addEventListener("change", pendiente);
-//  });
-
-//   function pendiente(){
-//     console.log('hola')
-//  }
+    if (element.asunto != asunto) {
+      notasAux.push(element);
+    } else {
+      if (element.completado) {
+        notaAux = {
+          asunto: element.asunto,
+          texto: element.texto,
+          fecha: element.fecha,
+          completado: false,
+        };
+      } else {
+        notaAux = {
+          asunto: element.asunto,
+          texto: element.texto,
+          fecha: element.fecha,
+          completado: true,
+        };
+      }
+      notasAux.push(notaAux);
+    }
+  });
+  notas = [];
+  notas = notasAux;
+  localStorage.setItem("notas", JSON.stringify(notas));
+}
