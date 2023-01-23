@@ -21,6 +21,7 @@ function añadirNota() {
   if (asunto.value.length > 0 && texto.value.length > 0) {
     const newElement = document.createElement("div");
     newElement.classList.add("nota-nueva");
+    newElement.classList.add("solo-notas-nuevas");
     document.querySelector(".note").appendChild(newElement);
 
     (newElement.innerHTML = `<div class="nota">
