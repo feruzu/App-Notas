@@ -69,10 +69,20 @@ body {
 }
 
 .solo-notas-nuevas {
-    animation:scale-up-tl .4s cubic-bezier(.39,.575,.565,1.000)
+    animation: scale-up-tl .4s cubic-bezier(.39, .575, .565, 1.000)
 }
 
-@keyframes scale-up-tl{0%{transform:scale(.5);transform-origin:0 0}100%{transform:scale(1);transform-origin:0 0}}
+@keyframes scale-up-tl {
+    0% {
+        transform: scale(.5);
+        transform-origin: 0 0
+    }
+
+    100% {
+        transform: scale(1);
+        transform-origin: 0 0
+    }
+}
 
 .nota-nueva h2,
 .nota-nueva p {
@@ -144,7 +154,6 @@ div {
     opacity: 60%;
 }
 
-
 p.fecha {
     margin: 0 auto;
     position: absolute;
@@ -170,7 +179,7 @@ h2#asunto {
 .form-check {
     position: absolute;
     margin: 0 auto;
-    margin-left: 250px; 
+    margin-left: 250px;
 }
 
 .form-check input {
@@ -184,11 +193,10 @@ h2#asunto {
 }
 
 .form-check-input:checked {
-    background-color: #7cda9b!important;
-    border-color: #7cda9b!important;
+    background-color: #7cda9b !important;
+    border-color: #7cda9b !important;
 }
 
 .form-check-input[type=checkbox] {
-    border-radius: 50%!important;
+    border-radius: 50% !important;
 }
-
