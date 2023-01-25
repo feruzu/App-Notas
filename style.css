@@ -43,7 +43,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #ff555d;
+    background: #dab4f3;
     border-radius: 50px;
     height: 60px;
     width: 60px;
@@ -63,7 +63,7 @@ body {
 }
 
 .nota-nueva {
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
     border-radius: 20px;
     height: 300px;
 }
@@ -105,7 +105,7 @@ body {
 }
 
 #aceptar {
-    background-color: #ff555d;
+    background: #dab4f3;
     border: none;
 }
 
@@ -137,7 +137,7 @@ div {
 
 
 #borrar:hover {
-    filter: invert(53%) sepia(23%) saturate(5230%) hue-rotate(320deg) brightness(92%) contrast(118%);
+    filter: invert(75%) sepia(74%) saturate(5751%) hue-rotate(234deg) brightness(105%) contrast(88%);
 }
 
 #borrar:active {
@@ -150,10 +150,9 @@ p.fecha {
     position: absolute;
     margin-top: 253px;
     font-size: 12px;
-    background-color: #ff555d;
     padding: 1px 5px;
     border-radius: 10px;
-    color: white;
+    color: rgb(0, 0, 0);
     font-weight: bold;
 }
 
@@ -162,7 +161,10 @@ p.texto {
 }
 
 h2#asunto {
-    margin: 25px 10px 10px 10px;
+    margin: 25px 10px 0px 10px;
+    color: #be74f0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.164);
+    padding-bottom: 10px;
 }
 
 .form-check {
